@@ -1,0 +1,260 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: auto;
+            width: auto; /* Adicionado para garantir que o conteúdo se ajuste */
+            margin: 0;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+        form {
+            background: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 800px;
+            box-sizing: border-box;
+            overflow: auto; /* Adicionado para permitir rolagem, se necessário */
+        }
+        label {
+            font-weight: bold;
+            display: block;
+            margin-bottom: 5px;
+            color: #5e52ab;
+        }
+        select, input[type="date"], textarea {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 15px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        textarea {
+            resize: none;
+        }
+        button {
+            background: #4d94e3;
+            color: #fff;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background: #3498c0;
+        }
+        .logo {
+            display: block;
+            margin: 0 auto 20px;
+            max-width: 100%;
+            height: auto;
+            box-sizing: border-box;
+        }
+    </style>
+    
+</head>
+<body>
+    <form id="feedbackForm" onsubmit="generatePDF(); return false;">
+        <img src="https://i.imgur.com/4Aw4wIF.png" alt="Logo ANOVA Cobrança" class="logo">
+        <label for="gestor">Selecione o Gestor:</label>
+        <select id="gestor" name="gestor" required>
+            <option value="">Escolha um gestor</option>
+            <option value="ANA VIVANCO">ANA VIVANCO</option>
+            <option value="ANDREA">ANDREA</option>
+            <option value="CRISTINA">CRISTINA</option>
+            <option value="FLAVIO">FLAVIO</option>
+            <option value="ELIETE">ELIETE</option>
+            <option value="FERNANDA">FERNANDA</option>
+            <option value="FLAVIO">FLAVIO</option>
+            <option value="IVO">IVO</option>
+            <option value="SAMANTA">SAMANTA</option>
+            <option value="SARITA">SARITA</option>
+            <option value="SHIRLEI">SHIRLEI</option>
+            <option value="TATIANE">TATIANE</option>
+            <option value="HELENA">HELENA</option>
+            <option value="THALITA D">THALITA D</option>
+        </select>
+
+        <label for="supervisor">Selecione o Supervisor:</label>
+        <select id="supervisor" name="supervisor" required>
+            <option value="">Escolha um supervisor</option>
+            <option value="ANA PAULA">ANA PAULA</option>
+            <option value="ANA VIVANCO">ANA VIVANCO</option>
+            <option value="ANDREA">ANDREA</option>
+            <option value="ANDREIA">ANDREIA</option>
+            <option value="BRUNO">BRUNO</option>
+            <option value="ELCIO">ELCIO</option>
+            <option value="ELIETE">ELIETE</option>
+            <option value="FERNANDA">FERNANDA</option>
+            <option value="FLAVIA">FLAVIA</option>
+            <option value="FLAVIO">FLAVIO</option>
+            <option value="GIOVANI">GIOVANI</option>
+            <option value="HELENA">HELENA</option>
+            <option value="IVO">IVO</option>
+            <option value="JORGE">JORGE</option>
+            <option value="JORGE BEGO">JORGE BEGO</option>
+            <option value="LUCIANA">LUCIANA</option>
+            <option value="MARIANA">MARIANA</option>
+            <option value="MELISSA">MELISSA</option>
+            <option value="SAMANTA">SAMANTA</option>
+            <option value="SARITA">SARITA</option>
+            <option value="SHIRLEI">SHIRLEI</option>
+            <option value="TATIANE">TATIANE</option>
+            <option value="TATIANE">TATIANE</option>
+            <option value="THALITA D">THALITA D</option>
+            <option value="THALITA L">THALITA L</option>
+            <option value="UBIRATAN">UBIRATAN</option>
+        </select>
+
+        <label for="centro_custo">Selecione o Centro de Custo:</label>
+        <select id="centro_custo" name="centro_custo" required>
+            <option value="">Escolha um centro de custo</option>
+            <option value="ADM COMERCIAL">ADM COMERCIAL</option>
+            <option value="ADM FINANCEIRO">ADM FINANCEIRO</option>
+            <option value="ADM OPERAÇÃO">ADM OPERAÇÃO</option>
+            <option value="ADM RH">ADM RH</option>
+            <option value="ADM SERVIÇOS GERAIS">ADM SERVIÇOS GERAIS</option>
+            <option value="ADM TECNOLOGIA">ADM TECNOLOGIA</option>
+            <option value="AMBEV">AMBEV</option>
+            <option value="ASSAI GALERIAS">ASSAI GALERIAS</option>
+            <option value="ASSAÍ">ASSAÍ</option>
+            <option value="BANCO DIGIMAIS">BANCO DIGIMAIS</option>
+            <option value="BANCO DIGIMAIS CARTÕES">BANCO DIGIMAIS CARTÕES</option>
+            <option value="BANESTES">BANESTES</option>
+            <option value="BMP">BMP</option>
+            <option value="EMGEA">EMGEA</option>
+            <option value="FIDC COHAB MINAS">FIDC COHAB MINAS</option>
+            <option value="GPA">GPA</option>
+            <option value="GRUPO VAMOS">GRUPO VAMOS</option>
+            <option value="ITAÚ">ITAÚ</option>
+            <option value="JURÍDICO CONTENCIOSO">JURÍDICO CONTENCIOSO</option>
+            <option value="JURÍDICO PRODUÇÃO">JURÍDICO PRODUÇÃO</option>
+            <option value="LOCALIZA PF">LOCALIZA PF</option>
+            <option value="LOCALIZA PJ">LOCALIZA PJ</option>
+            <option value="MOLTECH">MOLTECH</option>
+            <option value="PORTO SEGURO CARRO FÁCIL">PORTO SEGURO CARRO FÁCIL</option>
+            <option value="PORTO SEGURO CDC AMIGÁVEL PA FIXA">PORTO SEGURO CDC AMIGÁVEL PA FIXA</option>
+            <option value="PORTO SEGURO CDC COM GARANTIA">PORTO SEGURO CDC COM GARANTIA</option>
+            <option value="PORTO SEGURO CDC SEM GARANTIA">PORTO SEGURO CDC SEM GARANTIA</option>
+            <option value="PORTO SEGURO FIANÇA">PORTO SEGURO FIANÇA</option>
+            <option value="SABESP - COMAP">SABESP - COMAP</option>
+            <option value="SABESP REGIÃO OESTE">SABESP REGIÃO OESTE</option>
+            <option value="SINDICATO">SINDICATO</option>
+            <option value="TECH FACIL">TECH FACIL</option>
+            <option value="TENDA">TENDA</option>
+            <option value="TOKIO MARINE">TOKIO MARINE</option>
+            <option value="VERISURE PA FIXA">VERISURE PA FIXA</option>
+            <option value="OUZE">OUZE</option>
+        
+    </select>
+
+        <label for="cargo">Selecione o Cargo:</label>
+        <select id="cargo" name="cargo" required>
+        <option value="">Escolha um cargo</option>
+        <option value="AGENTE NEGOC. DE COBRANÇA">AGENTE NEGOC. DE COBRANÇA</option>
+
+
+     </select>
+
+        <label for="Explicação da meta">Explicação da meta:</label>
+        <textarea id="Explicação da meta" name="Explicação da meta" required></textarea>
+    
+    </select>
+
+    <label for="Explicação dos indicadores e critérios para premiação">Explicação dos indicadores e critérios para premiação:</label>
+    <textarea id="Explicação dos indicadores e critérios para premiação" name="Explicação dos indicadores e critérios para premiação" required></textarea>
+
+</select>
+
+        <label for="Explicação dos ofensores para desconto de premiação">Explicação dos ofensores para desconto de premiação:</label>
+        <textarea id="Explicação dos ofensores para desconto de premiação" name="Explicação dos ofensores para desconto de premiação" required></textarea>
+
+</select>
+
+        <label for="Descrição do acompanhamento para consultar resultado do agente">Descrição do acompanhamento para consultar resultado do agente:</label>
+        <textarea id="Descrição do acompanhamento para consultar resultado do agente" name="Descrição do acompanhamento para consultar resultado do agente" required></textarea>
+
+        <button type="submit">Enviar</button>
+    </form>
+    
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.3.1/jspdf.umd.min.js"></script>
+    <script>
+        
+        function generatePDF() {
+    const { jsPDF } = window.jspdf;
+    const doc = new jsPDF();
+
+    // Adicionar a logo da ANOVA centralizada e redimensionada
+    doc.addImage("https://i.imgur.com/4Aw4wIF.png", "PNG", 100, 10, 11, 8); // Logo pequeno e centralizado
+
+    doc.setFontSize(18);
+    doc.setTextColor('#5e52ab');
+    doc.setFont("Helvetica", "bold");
+    doc.text("FORMALIZAÇÃO DE FEEDBACK PARA PREMIAÇÃO", 105, 25, null, null, 'center'); // Título em preto, negrito e caixa alta
+
+    doc.setFontSize(10);
+    doc.setTextColor('#000');
+
+    // Adicionar relevo e cor de fundo às caixas de resposta
+    const addBox = (x, y, width, title, text) => {
+        const lines = doc.splitTextToSize(text, width - 2);
+        const height = 5 + lines.length * 5; // Ajusta a altura com base no número de linhas
+        doc.setDrawColor(0);
+        doc.setLineWidth(0.3);
+        doc.setFont("Helvetica", "bold");
+        doc.setTextColor('#5e52ab'); // Cor dos títulos das caixas
+        doc.text(title, x + 1, y - 2);
+        doc.roundedRect(x, y, width, height, 0, 0); // Pontas quadradas, sem cor sólida dentro
+        doc.setFont("Helvetica", "normal");
+        doc.setTextColor('#000');
+        doc.text(lines, x + 1, y + 4);
+        return height;
+    };
+
+    // Ajustar para evitar sobreposição
+    const heightGerente = addBox(9, 54, 92, "GERENTE:", document.getElementById('gestor').value);
+    const heightSupervisor = addBox(104, 54, 92, "SUPERVISOR:", document.getElementById('supervisor').value);
+    const maxHeight1 = Math.max(heightGerente, heightSupervisor);
+    const heightCentroCusto = addBox(9, 54 + maxHeight1 + 5, 92, "CENTRO DE CUSTO:", document.getElementById('centro_custo').value);
+    const heightCargo = addBox(104, 54 + maxHeight1 + 5, 92, "CARGO:", document.getElementById('cargo').value);
+    const maxHeight2 = Math.max(heightCentroCusto, heightCargo);
+
+    // Adicionar a data atual diretamente no PDF
+    const today = new Date().toISOString().substr(0, 10).split("-").reverse().join("/");
+    const dataHeight = addBox(9, 54 + maxHeight1 + maxHeight2 + 10, 92, "DATA:", today);
+
+    const metaHeight = addBox(9, 78 + maxHeight1 + maxHeight2 + dataHeight + 10, 192, "EXPLICAÇÃO DA META:", document.getElementById('Explicação da meta').value);
+    const indicadoresHeight = addBox(9, 78 + maxHeight1 + maxHeight2 + dataHeight + metaHeight + 15, 192, "EXPLICAÇÃO DOS INDICADORES E CRITÉRIOS PARA PREMIAÇÃO:", document.getElementById('Explicação dos indicadores e critérios para premiação').value);
+    const ofensoresHeight = addBox(9, 78 + maxHeight1 + maxHeight2 + dataHeight + metaHeight + indicadoresHeight + 20, 192, "EXPLICAÇÃO DOS OFENSORES PARA DESCONTO DE PREMIAÇÃO:", document.getElementById('Explicação dos ofensores para desconto de premiação').value);
+    const acompanhamentoHeight = addBox(9, 78 + maxHeight1 + maxHeight2 + dataHeight + metaHeight + indicadoresHeight + ofensoresHeight + 25, 192, "DESCRIÇÃO DO ACOMPANHAMENTO PARA CONSULTAR RESULTADO DO AGENTE:", document.getElementById('Descrição do acompanhamento para consultar resultado do agente').value);
+
+    const signaturesY = 78 + maxHeight1 + maxHeight2 + dataHeight + metaHeight + indicadoresHeight + ofensoresHeight + acompanhamentoHeight + 45;
+    doc.setFontSize(12);
+    doc.setTextColor('#5e52ab');
+    doc.setFont("Helvetica", "bold");
+    doc.text("Assinaturas:", 10, signaturesY);
+    doc.setFont("Helvetica", "normal");
+    doc.setTextColor('#000');
+    doc.text("Gestor: _________________________", 10, signaturesY + 10);
+    doc.text("Supervisor: _______________________", 105, signaturesY + 10);
+    doc.text("Funcionário: ______________________", 60, signaturesY + 35); // Mais afastado para baixo
+
+    doc.save("formulario_feedback.pdf");
+
+};
+    
+    </script>
+    
+</body>
+</html>
